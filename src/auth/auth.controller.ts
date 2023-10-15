@@ -1,6 +1,6 @@
-import { Body, Controller, Post, Req } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { Request } from 'express';
+import { AuthdTO } from './dto';
 
 @Controller('auth')
 export class AuthController {
@@ -11,7 +11,7 @@ export class AuthController {
   // signup(@Req() req: Request) {
 
   //     else use body decorator
-  signup(@Body() dto: any) {
+  signup(@Body() dto: AuthdTO) {
     console.log({ dto: dto });
     return this.authService.signup();
   }
