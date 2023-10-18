@@ -83,16 +83,23 @@ export class AuthService {
     }
     // return { msg: 'This is signin route' };
   }
-  signToken(userId: number, email: string): Promise<string> {
+  async signToken(
+    userId: number,
+    email: string,
+  ): Promise<{ access_token: string }> {
     const payload = {
       sub: userId,
       email,
     };
     const secret = this.config.get('JWT_SECRET');
-    return this.JWT.signAsync(payload, {
+
+    const token = await this.JWT.signAsync(payload, {
       expiresIn: '15m',
       secret: secret,
     });
+    return {
+      access_token: token,
+    };
   }
 }
 
