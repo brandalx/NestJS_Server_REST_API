@@ -42,8 +42,39 @@ export class AuthService {
     // return the saved user
     // return { msg: 'This is signup route' };
   }
-  signin() {
-    return { msg: 'This is signin route' };
+  async signin(dto: AuthDTO) {
+    try {
+      //find user
+      const user = await this.prisma.user.findUnique({
+        where: {
+          email: dto.email,
+        },
+      });
+      //if user does not exist case
+
+      if (!user) {
+        throw new ForbiddenException('Credentials incorrect');
+      }
+
+      //comparing password
+      const pwMatches = await argon2.verify(user.hash, dto.password);
+
+      if (!pwMatches) {
+        throw new ForbiddenException('Credentials incorrect');
+      }
+
+      delete user.hash;
+      return user;
+      //send back user
+    } catch (error) {
+      if (error instanceof PrismaClientKnownRequestError) {
+        if (error.code === 'P2002') {
+          throw new ForbiddenException('Credentials error');
+        }
+        throw error;
+      }
+    }
+    // return { msg: 'This is signin route' };
   }
 }
 
