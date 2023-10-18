@@ -71,8 +71,8 @@ export class AuthService {
         if (error.code === 'P2002') {
           throw new ForbiddenException('Credentials error');
         }
-        throw error;
       }
+      throw error;
     }
     // return { msg: 'This is signin route' };
   }
