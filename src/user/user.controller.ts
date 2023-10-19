@@ -11,6 +11,7 @@ import { JwtGuard } from 'src/auth/guard';
 export class UserController {
   @Get('me')
   //   getMe(@Req() req: Request) {
+  //   getMe(@GetUser() user: User) {
   getMe(@GetUser() user: User) {
     console.log({
       user: user,
