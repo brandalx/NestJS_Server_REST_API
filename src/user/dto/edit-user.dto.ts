@@ -6,8 +6,8 @@ export class EditUserDto {
   email?: string;
   @IsString()
   @IsOptional()
-  firstname?: string;
+  firstName?: string;
   @IsString()
   @IsOptional()
-  lastname?: string;
+  lastName?: string;
 }
