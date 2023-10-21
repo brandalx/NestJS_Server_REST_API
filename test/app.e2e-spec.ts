@@ -44,7 +44,14 @@ describe('App e2e', () => {
       });
     });
     describe('Signin', () => {
-      it.todo('Should Signin');
+      it('Should Signin', () => {
+        return pactum
+          .spec()
+          .post('/auth/signin')
+          .withBody(dto)
+          .expectStatus(200)
+          .inspect();
+      });
     });
   });
 
