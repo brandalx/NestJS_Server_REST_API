@@ -12,7 +12,7 @@ import {
 import { JwtGuard } from '../auth/guard/index';
 import { BookmarkService } from './bookmark.service';
 import { GetUser } from 'src/auth/decorator';
-import { CreateBookmarkDto } from './dto';
+import { CreateBookmarkDto, EditBookmarkDto } from './dto';
 
 @UseGuards(JwtGuard)
 @Controller('bookmarks')
@@ -32,7 +32,10 @@ export class BookmarkController {
     @Body() dto: CreateBookmarkDto,
   ) {}
   @Patch()
-  editBookmarksById(@GetUser('id') userId: number) {}
+  editBookmarksById(
+    @GetUser('id') userId: number,
+    @Body() dto: EditBookmarkDto,
+  ) {}
   @Delete()
   deleteBookmarksById(@GetUser('id') userId: number) {}
 }
