@@ -126,7 +126,7 @@ describe('App e2e', () => {
     describe('Edit user', () => {});
   });
 
-  describe('Bokkmarks', () => {
+  describe('Bokmarks', () => {
     describe('Get bookmarks', () => {});
 
     describe('Create bookmarks', () => {});
