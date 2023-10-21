@@ -29,12 +29,12 @@ describe('App e2e', () => {
   });
 
   describe('Auth', () => {
+    const dto: AuthDTO = {
+      email: 'brandon@gmail.com',
+      password: '1234',
+    };
     describe('Signup', () => {
       it('Should Signup', () => {
-        const dto: AuthDTO = {
-          email: 'brandon@gmail.com',
-          password: '1234',
-        };
         return pactum
           .spec()
           .post('/auth/signup')
