@@ -1,4 +1,5 @@
 import {
+  Body,
   Controller,
   Delete,
   Get,
@@ -11,6 +12,7 @@ import {
 import { JwtGuard } from '../auth/guard/index';
 import { BookmarkService } from './bookmark.service';
 import { GetUser } from 'src/auth/decorator';
+import { CreateBookmarkDto } from './dto';
 
 @UseGuards(JwtGuard)
 @Controller('bookmarks')
@@ -25,7 +27,10 @@ export class BookmarkController {
     @Param('id', ParseIntPipe) bookmarkId: number,
   ) {}
   @Post()
-  createBookmarks(@GetUser('id') userId: number) {}
+  createBookmarks(
+    @GetUser('id') userId: number,
+    @Body() dto: CreateBookmarkDto,
+  ) {}
   @Patch()
   editBookmarksById(@GetUser('id') userId: number) {}
   @Delete()
