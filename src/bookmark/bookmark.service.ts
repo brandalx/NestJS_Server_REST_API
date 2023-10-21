@@ -3,8 +3,8 @@ import { CreateBookmarkDto, EditBookmarkDto } from './dto';
 
 @Injectable()
 export class BookmarkService {
-  getBookmarks() {
-    userId: number;
+  getBookmarks(  userId: number;) {
+  
   }
 
   getBookmarksById(userId: number, bookmarkId: number) {}
