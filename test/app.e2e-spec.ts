@@ -66,6 +66,10 @@ describe('App e2e', () => {
           .expectStatus(400)
           .inspect();
       });
+
+      it('should throw if email or password empty', () => {
+        return pactum.spec().post('/auth/signin').expectStatus(400).inspect();
+      });
       it('Should Signin', () => {
         return pactum
           .spec()
