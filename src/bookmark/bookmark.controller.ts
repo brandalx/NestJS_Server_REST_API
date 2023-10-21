@@ -36,6 +36,9 @@ export class BookmarkController {
     @GetUser('id') userId: number,
     @Body() dto: EditBookmarkDto,
   ) {}
-  @Delete()
-  deleteBookmarksById(@GetUser('id') userId: number) {}
+  @Delete(':id')
+  deleteBookmarksById(
+    @GetUser('id') @Param('id', ParseIntPipe) bookmarkId: number,
+    userId: number,
+  ) {}
 }
