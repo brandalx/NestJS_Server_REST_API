@@ -32,7 +32,11 @@ export class BookmarkService {
     return bookmark;
   }
 
-  editBookmarksById(userId: number, dto: EditBookmarkDto, bookmarkId: number) {}
+  editBookmarksById(userId: number, dto: EditBookmarkDto, bookmarkId: number) {
+    //get the bookmark id
+    //check if user owns the bookmark
+    //edit bookmark
+  }
 
   deleteBookmarksById(userId: number, bookmarkId: number) {}
 }
