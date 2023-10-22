@@ -15,7 +15,15 @@ export class BookmarkService {
 
   getBookmarksById(userId: number, bookmarkId: number) {}
 
-  createBookmarks(userId: number, dto: CreateBookmarkDto) {}
+  async createBookmarks(userId: number, dto: CreateBookmarkDto) {
+    const bookmark = await this.prisma.bookmark.create({
+      data: {
+        userId,
+        ...dto,
+      },
+    });
+    return bookmark;
+  }
 
   editBookmarksById(userId: number, dto: EditBookmarkDto, bookmarkId: number) {}
 
