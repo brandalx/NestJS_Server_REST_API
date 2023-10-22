@@ -38,7 +38,141 @@ This repository showcases a NestJS REST API with integrations to demonstrate the
    cd nestjs-rest-api-demo
    ```
 
-## Useful commands to run:
+# Scripts
+
+## Here are the available scripts you can run:
+
+- **Prisma Deployment (Development)**:
+
+  ```bash
+  yarn primsa:dev:deploy
+  ```
+
+  - **Remove Development Database**:
+
+  ```bash
+  yarn db:dev:rm
+  ```
+
+- **Start Development Database**:
+
+  ```bash
+  yarn db:dev:up
+  ```
+
+- **Restart Development Database:**:
+
+  ```bash
+  yarn db:dev:restart
+  ```
+
+  - **Restart Test Database:**:
+
+  ```bash
+  yarn db:test:restart
+  ```
+
+  - **Prisma Deployment (Testing):**:
+
+  ```bash
+  yarn primsa:test:deploy
+  ```
+
+  - **Remove Test Database:**
+
+  ```bash
+  yarn db:test:rm
+  ```
+
+  - **Start Test Database:**
+
+  ```bash
+  yarn db:test:up
+  ```
+
+  - **Build Application:**
+
+  ```bash
+  yarn build
+  ```
+
+  - **Format Code:**
+
+  ```bash
+  yarn format
+  ```
+
+  - **Start Application in Development Mode:**:
+
+  ```bash
+  yarn primsa:dev:deploy
+  ```
+
+  - **Start Application:**:
+
+  ```bash
+  yarn start
+  ```
+
+  - **Start Application in Development Mode:**:
+
+  ```bash
+  yarn start:dev
+  ```
+
+  - **Start Application in Debug Mode:**:
+
+  ```bash
+  yarn start:debug
+  ```
+
+  - **Start Application in Production Mode:**:
+
+  ```bash
+  yarn start:prod
+  ```
+
+  - **Lint Code:**:
+
+  ```bash
+  yarn lint
+  ```
+
+  - **Run Tests:**:
+
+  ```bash
+  yarn test
+  ```
+
+  - **Run Tests in Watch Mode:**:
+
+  ```bash
+  yarn test:watch
+  ```
+
+  - **Run Tests with Coverag:**:
+
+  ```bash
+  yarn test:cov
+  ```
+
+  - **Debug Tests:**:
+
+  ```bash
+  yarn test:debug
+  ```
+
+  - **Run End-to-End Tests:**:
+
+  ```bash
+  yarn test:e2e
+  ```
+
+  - **Lint Code:**:
+
+  ```bash
+  yarn primsa:dev:deploy
+  ```
 
 ```bash
 npx dotenv -e .env.test -- prisma studio
@@ -46,6 +180,22 @@ npx dotenv -e .env.test -- prisma studio
 
 ```bash
 npx dotenv -e .env -- prisma studio
+```
+
+## Setup
+
+To run this app, you need to create some configuration files and set up environment variables.
+
+### 1. Create `.env` and `.env.test` Files
+
+In the root of the project, create a `.env` and `.env.test` files and add the following variables, assigning appropriate values:
+
+```env
+POSTGRES_USER=your_postgres_user
+POSTGRES_PASSWORD=your_postgres_password
+POSTGRES_DB=your_postgres_db_name
+DATABASE_URL=your_database_url
+JWT_SECRET=your_jwt_secret
 ```
 
   <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
