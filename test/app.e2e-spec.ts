@@ -180,6 +180,7 @@ describe('App e2e', () => {
           .withBody(dto)
 
           .expectStatus(201)
+          .stores('bookmarkId', 'id')
 
           .inspect();
       });
@@ -196,6 +197,22 @@ describe('App e2e', () => {
 
           .expectStatus(200)
           .expectJsonLength(1)
+
+          .inspect();
+      });
+    });
+
+    describe('Get bookmark by ID', () => {
+      it('Should  get bookmark by ID', () => {
+        return pactum
+          .spec()
+          .get('/bookmarks/{id}')
+          .withPathParams('id', '$S{bookmarkId}')
+          .withHeaders({
+            Authorization: 'Bearer $S{userAt}',
+          })
+
+          .expectStatus(200)
 
           .inspect();
       });
