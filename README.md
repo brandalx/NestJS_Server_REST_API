@@ -5,6 +5,49 @@
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
+# NestJS REST API Demonstration
+
+**Author**: [@brandalx](https://github.com/brandalx)
+
+This repository showcases a NestJS REST API with integrations to demonstrate the capabilities of NestJS, Prisma, End-to-End (E2E) tests, Docker containers, and Docker Compose.
+
+## Technologies Used
+
+- **NestJS**: A progressive Node.js framework for building efficient, reliable, and scalable server-side applications.
+- **Prisma**: An open-source database toolkit.
+- **Pactum**: An API testing tool that offers simplicity and versatility.
+- **TypeScript (TS)**: A typed superset of JavaScript that adds optional static types.
+- **Jest**: A delightful JavaScript Testing Framework with a focus on simplicity.
+- **Argon2**: A password hashing library.
+- **Docker & Docker Compose**: Used for containerization and defining and running multi-container Docker applications, respectively.
+
+## Features
+
+- **RESTful Endpoints**: Supports basic CRUD operations (GET, POST, DELETE, PATCH).
+- **Authentication**: Integrated authentication using JWTs and Argon2 for password hashing.
+- **Database Integration**: Uses Prisma for database interactions.
+- **E2E Tests**: End-to-End tests written using Jest, Pactum.
+- **Containerization**: The application and its services are containerized using Docker.
+
+## Setup & Run
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/brandalx/NestJS_Server_REST_API
+   cd nestjs-rest-api-demo
+   ```
+
+## Useful commands to run:
+
+```bash
+npx dotenv -e .env.test -- prisma studio
+```
+
+```bash
+npx dotenv -e .env -- prisma studio
+```
+
   <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
     <p align="center">
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
