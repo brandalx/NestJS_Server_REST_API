@@ -159,6 +159,7 @@ describe('App e2e', () => {
           })
 
           .expectStatus(200)
+          .expectBody([])
           .inspect();
       });
     });
