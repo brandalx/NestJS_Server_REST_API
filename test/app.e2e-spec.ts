@@ -185,7 +185,21 @@ describe('App e2e', () => {
       });
     });
 
-    describe('Get bookmark by id', () => {});
+    describe('Get bookmarks', () => {
+      it('Should  get bookmarks', () => {
+        return pactum
+          .spec()
+          .get('/bookmarks')
+          .withHeaders({
+            Authorization: 'Bearer $S{userAt}',
+          })
+
+          .expectStatus(200)
+          .expectJsonLength(1)
+
+          .inspect();
+      });
+    });
 
     describe('Edit bookmark', () => {});
 
