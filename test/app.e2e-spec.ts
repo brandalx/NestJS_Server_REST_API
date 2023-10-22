@@ -244,7 +244,34 @@ describe('App e2e', () => {
       });
     });
 
-    describe('Delete bookmark', () => {});
+    describe('Delete bookmark', () => {
+      it('Should  delete bookmark', () => {
+        return pactum
+          .spec()
+          .delete('/bookmarks/{id}')
+          .withPathParams('id', '$S{bookmarkId}')
+          .withHeaders({
+            Authorization: 'Bearer $S{userAt}',
+          })
+
+          .expectStatus(204)
+
+          .inspect();
+      });
+
+      it('Should  get empty bookmarks', () => {
+        return pactum
+          .spec()
+          .get('/bookmarks')
+          .withHeaders({
+            Authorization: 'Bearer $S{userAt}',
+          })
+
+          .expectStatus(200)
+          .expectJsonLength(0)
+          .inspect();
+      });
+    });
   });
 
   // it.todo('should pass');
